@@ -1,0 +1,68 @@
+Expresiones Lambda
+Funciones sin nombre = Funciones anónimas
+ESto es lo que ha pasado el Jordi Torrent del ejercicio de ayer
+
+
+https://docs.mongodb.com/manual/core/databases-and-collections/
+Crear condiciones de forma implícita:
+    db.myNewCollection2.insertOne( { x: 1 } )
+    db.myNewCollection3.createIndex( { y: 1 } )
+
+Explicita : https://docs.mongodb.com/manual/reference/method/db.createCollection/#db.createCollection
+    db.createCollection()
+
+
+Json validator schema:
+https://www.jsonschemavalidator.net/
+
+Schema Validation (https://docs.mongodb.com/manual/core/schema-validation/)
+Especificar restricciones por cada columna.
+
+A nivel de examen no sale mucho de esto pero si conocerlo.
+
+
+Types (https://docs.mongodb.com/manual/reference/bson-types/)
+
+Los Types los tratas como clases de JavaScript
+var a = new Timestamp(); (por ejmplo)
+
+
+CRUD Operations (https://docs.mongodb.com/manual/crud)
+Update
+$set: para especificar cambio
+
+link para crear strored procedures: http://pointbeing.net/weblog/2010/08/getting-started-with-stored-procedures-in-mongodb.html
+Pregunta examen:
+So in MongoDB, a stored procedure is really just a JavaScript function, 
+which must be stored in a special collection named db.system.js
+
+Todas las funciones se guardan en una coleción especial db.system.js de la bbdd
+Para verlas:
+db.system.js.find()
+
+
+db.loadServerScripts();
+var x= addNumbers(5,5);
+print(x);
+
+
+
+
+
+Differences Between Interactive and Scripted mongo
+https://docs.mongodb.com/manual/tutorial/write-scripts-for-the-mongo-shell/
+https://docs.mongodb.com/manual/tutorial/write-scripts-for-the-mongo-shell/#opening-new-connections
+Ver modulo de Differences Between Interactive and Scripted
+
+Por defecto: (pregunta examen)
+El batch de salida de un find es de 20 registros
+
+
+En el while el cursor tiene dos metodos: cursor.hasNext,cursor.next()
+
+La funcion printjson() para que me lo muestre en formato json
+
+
+Tablas relacionadas (foreignkey)
+https://docs.mongodb.com/manual/applications/data-models-relationships/
+Query on Embedded/Nested Documents
