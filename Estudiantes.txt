@@ -1,0 +1,15 @@
+{    
+    "Apellidos" : "Vidal Lanau",
+    "Nombre" : "Sergi",
+    "NIF": "36572425X",
+    "Clase" : [ 
+        {
+            "Titulo" : "1-A",
+            "Descripcion" : "AAAA"
+        }, 
+        {
+            "Titulo" : "2-A",
+            "Descripcion" : "BBBB"
+        }
+    ]
+}
