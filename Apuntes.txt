@@ -2,6 +2,9 @@ Expresiones Lambda
 Funciones sin nombre = Funciones anónimas
 ESto es lo que ha pasado el Jordi Torrent del ejercicio de ayer
 
+Guia Examen:
+https://university.mongodb.com/exam/guide
+
 
 https://docs.mongodb.com/manual/core/databases-and-collections/
 Crear condiciones de forma implícita:
@@ -66,3 +69,79 @@ La funcion printjson() para que me lo muestre en formato json
 Tablas relacionadas (foreignkey)
 https://docs.mongodb.com/manual/applications/data-models-relationships/
 Query on Embedded/Nested Documents
+
+mongoDB Many-to-Many Relationship Data Modeling
+http://blog.markstarkman.com/blog/2011/09/15/mongodb-many-to-many-relationship-data-modeling/
+
+
+Estos dos temas se han de mirar para el examen (son los dos temas más complicados)
+Sharding
+Clustering (replication set)
+
+
+WiredTiger Storage Engine
+https://docs.mongodb.com/manual/core/wiredtiger/
+
+la WiredTiger Storage Engine seria la storage.engine por defecto. En el fichero .cfg se puede ponert
+MMAPv1 deprecated ahora es Wired WiredTiger
+
+A nivel de documento no existe en MongoDb las transacciones.
+A nivel de documento tengo Concurrencia, no hay bloqueos: 
+As a result, multiple clients can modify different documents of a collection at the same time
+
+Los bloqueos son a nivel de colecciones, db o global (modificar tablas por ejemplo)
+WiredTiger uses optimistic concurrency control. WiredTiger uses only intent locks at the global, database and collection levels
+
+
+Snapshots and Checkpoints (todo esto es de sistema)
+Son vistas de control...te permite tirar atrás a vistas anteriores.
+Checkpoints...puntos de control dentro de las transacciones...(como no hay) pero te permite volver a un punto
+
+
+Journal (Journaling): transaction log
+
+You can disable journaling for standalone instances by setting storage.journal.enabled to false
+
+Compression y Memory Use no sale tanto en examen
+
+Indices
+https://www.genbeta.com/desarrollo/mongodb-creacion-y-utilizacion-de-indices
+
+Los documentos se van guardando de forma arbitraria.
+Por defecto no hay índices...hasta que hago createindex
+Para hacer insert mejor no indices...para búsquedas hay que tenerlos...
+Para mejorar el rendimiento lo mejor son los Indices
+
+La estructura de los indices es en formato B-tree
+
+
+Sharding: (tb se le llama escalamiento horizontal)
+https://charlascylon.com/2014-01-30-tutorial-mongodb-explicando-el-sharding-con-una
+Particionado en distintas instancias
+
+Mongos.exe (router de MongoDb) es el repartidor y lo hace a partir de una shard key
+Mongos siempre va vinculado con un Config Servers que es donde está toda la información se los Shard
+
+Funciona por un sistema de rangos: range based aproach
+Chuncks  (rangos)
+Sharding es a nivel de Base de datos no de colecciones (la configuración). Puedo especificar que collecciones tienen o no sharding.
+
+Las colecciones que no tienen sharding van al primer shard de la arquitectura.
+
+Mongos es "stateless" (no persiste, sin estado). haces la petición, busca, responde y se para el proceso
+
+"scatter/gather operation" búsqueda sin estar en shard key...busca en todas
+
+
+Replication
+Master-Slave replication
+
+Replica set: Conjunto de servidores replicados. No le llaman cluster sino Replica set
+Cada Shard es un Replica set
+
+Los replicas set suelen ser de tres: master, slave y arbitro
+
+Replication factor
+
+HA: High available
+Failover Cluster
